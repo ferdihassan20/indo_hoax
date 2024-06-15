@@ -139,7 +139,7 @@ class Preprocessor(L.LightningDataModule):
             self.train_data = train_set
             self.val_data = val_set
         elif stage == "test":
-            self.test_data = test_data
+            self.test_data = test_set
 
     def train_dataloader(self):
         return DataLoader(
