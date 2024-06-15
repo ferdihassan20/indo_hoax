@@ -48,7 +48,7 @@ class HoaxDetectionModel(L.LightningModule):
 
     #Call / Forward (Running)
     def forward(self, x_ids, x_att):
-        self.lm(
+        lm_out = self.lm(
             input_ids = x_ids,
             attention_mask = x_att
         )
