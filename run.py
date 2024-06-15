@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     trainer = L.Trainer(
         # di mana model training, gpu > cpu karena bisa kalkulasi matrix
-        accelerator = 'cpu',
+        accelerator = 'gpu',
         # belajar sekian data dalam 1 kali
         max_epochs = 1,
         # directory pentimpanan

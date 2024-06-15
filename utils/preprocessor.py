@@ -21,8 +21,10 @@ class Preprocessor(L.LightningDataModule):
         self.tokenizer = AutoTokenizer.from_pretrained("indolem/indobert-base-uncased")
         self.batch_size = batch_size
 
+        self.kaggle_folder = "indo_hoax"
+
     def load_data(self):
-        dataset = pd.read_csv("dataset/turnbackhoax_data.csv")
+        dataset = pd.read_csv(f"{self.kaggle_folder}/dataset/turnbackhoax_data.csv")
         dataset = dataset[["title", "label", "narasi", "counter"]]
         
         return dataset
@@ -30,9 +32,9 @@ class Preprocessor(L.LightningDataModule):
     def preprocessor(self):
         dataset = self.load_data()
 
-        if not os.path.exists("dataset/train_set.pt") \
-            and not os.path.exists("dataset/val_set.pt") \
-            and not os.path.exists("dataset/test_set.pt"):
+        if not os.path.exists(f"{self.kaggle_folder}/dataset/train_set.pt") \
+            and not os.path.exists(f"{self.kaggle_folder}/dataset/val_set.pt") \
+            and not os.path.exists(f"{self.kaggle_folder}/dataset/test_set.pt"):
 
             x_ids, x_att, y = [], [], []
             
@@ -105,9 +107,9 @@ class Preprocessor(L.LightningDataModule):
             all_data = TensorDataset(x_ids, x_att, y)
             train_set, val_set, test_set = torch.utils.data.random_split(all_data, [train_len, val_len, test_len])
 
-            torch.save(train_set, "dataset/train_set.pt")
-            torch.save(val_set, "dataset/val_set.pt")
-            torch.save(test_set, "dataset/test_set.pt")
+            torch.save(train_set, f"{self.kaggle_folder}/dataset/train_set.pt")
+            torch.save(val_set, f"{self.kaggle_folder}/dataset/val_set.pt")
+            torch.save(test_set, f"{self.kaggle_folder}/dataset/test_set.pt")
 
             return train_set, val_set, test_set
 
