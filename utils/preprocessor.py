@@ -141,7 +141,7 @@ class Preprocessor(L.LightningDataModule):
         elif stage == "test":
             self.test_data = test_data
 
-    def train_dataLoader(self):
+    def train_dataloader(self):
         return DataLoader(
             self.train_data,
             #batch_size = 16
@@ -150,7 +150,7 @@ class Preprocessor(L.LightningDataModule):
             num_workers = 2
         )
     
-    def val_dataLoader(self):
+    def val_dataloader(self):
         return DataLoader(
             self.val_data,
             batch_size = self.batch_size,
@@ -158,7 +158,7 @@ class Preprocessor(L.LightningDataModule):
             num_workers = 2
         )
     
-    def test_dataLoader(self):
+    def test_dataloader(self):
         return DataLoader(
             self.test_data,
             batch_size = self.batch_size,
