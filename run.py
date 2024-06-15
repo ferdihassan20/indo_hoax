@@ -17,7 +17,7 @@ if __name__ == "__main__":
         # di mana model training, gpu > cpu karena bisa kalkulasi matrix
         accelerator = 'gpu',
         # belajar sekian data dalam 1 kali
-        max_epochs = 1,
+        max_epochs = 10,
         # directory pentimpanan
         default_root_dir = 'logs/indobert'
     )
@@ -26,4 +26,4 @@ if __name__ == "__main__":
     trainer.fit(model, datamodule = dm)
 
     # Bagian Testing modul
-    trainer.test(datamodel = dm, ckpt_path = 'best')
+    trainer.test(datamodule = dm, ckpt_path = 'best')
