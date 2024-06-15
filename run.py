@@ -17,7 +17,7 @@ if __name__ == "__main__":
         # di mana model training, gpu > cpu karena bisa kalkulasi matrix
         accelerator = 'gpu',
         # belajar sekian data dalam 1 kali
-        max_epochs = 10,
+        max_epochs = 5,
         # directory pentimpanan
         default_root_dir = 'logs/indobert'
     )
