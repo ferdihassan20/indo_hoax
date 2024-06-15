@@ -79,6 +79,10 @@ class HoaxDetectionModel(L.LightningModule):
         self.macro = F1Score(task = task, num_classes = 2, average = "macro")
         self.weighted = F1Score(task = task, num_classes = 2, average = "weighted")
 
+        self.f1_metrics_micro = F1Score(task = task, num_classes = 2, average = "micro")
+        self.f1_metrics_macro = F1Score(task = task, num_classes = 2, average = "macro")
+        self.f1_metrics_weighted = F1Score(task = task, num_classes = 2, average = "weighted")
+
         self.prec_metrics_micro = Precision(task = task, num_classes = 2, average = "micro")
         self.prec_metrics_macro = Precision(task = task, num_classes = 2, average = "macro")                            
         self.prec_metrics_weighted = Precision(task = task, num_classes = 2, average = "weighted")
