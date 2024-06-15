@@ -115,9 +115,9 @@ class Preprocessor(L.LightningDataModule):
 
         else:
             print("Load Data")
-            train_set = torch.load("dataset/train_set.pt")
-            val_set = torch.load("dataset/val_set.pt")
-            test_set = torch.load("dataset/test_set.pt")
+            train_set = torch.load(f"{self.kaggle_folder}/dataset/train_set.pt")
+            val_set = torch.load(f"{self.kaggle_folder}/dataset/val_set.pt")
+            test_set = torch.load(f"{self.kaggle_folder}/dataset/test_set.pt")
             
             return train_set, val_set, test_set
 
