@@ -30,6 +30,8 @@ def input_parser():
         "root_dir" : args.root_dir
     }
 
+    return config
+
 if __name__ == "__main__":
 
     config = input_parser()
@@ -39,15 +41,15 @@ if __name__ == "__main__":
         batch_size =  config["batch_size"]
     )
 
-    model = HoaxDetectionModel(model_id = config("model_id"))
+    model = HoaxDetectionModel(model_id = config["model_id"])
 
     trainer = L.Trainer(
         # di mana model training, gpu > cpu karena bisa kalkulasi matrix
-        accelerator =  config("use_gpus"),
+        accelerator =  config["use_gpu"],
         # belajar sekian data dalam 1 kali
-        max_epochs =  config("max_epoch"),
+        max_epochs =  config["max_epoch"],
         # directory pentimpanan
-        default_root_dir =  config("root_dir")
+        default_root_dir =  config["root_dir"]
     )
 
     # Bagian training data
