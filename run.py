@@ -12,7 +12,7 @@ def input_parser():
     parser.add_argument("--max_epoch", type = int, default = 10)
     parser.add_argument("--batch_size", type = int, default = 10)
     parser.add_argument("--model_id", type = str, default = "indolem/indobert-base-uncased")
-    parser.add_argument("--root_dir", type = str, default = 10)
+    parser.add_argument("--root_dir", type = str, default = "logs/indobert")
     
 
     args = parser.parse_args()
