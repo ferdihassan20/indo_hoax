@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
     # Menyiapkan data untuk diproses
     dm = Preprocessor (
-        batch_size =  config("batch_size")
+        batch_size =  config["batch_size"]
     )
 
     model = HoaxDetectionModel(model_id = config("model_id"))
